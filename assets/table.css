@@ -1,0 +1,20 @@
+.weatherTable {
+  table-layout: fixed;
+  overflow: hidden;
+}
+
+.weatherTable .editableCell {
+  width: 100%;
+  padding: 0px;
+  border: 0px;
+  outline: none
+}
+
+.weatherTable .labelColumn {
+  width:auto;
+  white-space: nowrap;
+}
+
+.weatherTable .dataColumn {
+  width: 25%;
+}

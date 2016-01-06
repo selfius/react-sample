@@ -1,4 +1,5 @@
 import React from 'react'
+import '../assets/table.css'
 
 export default class EditableCell extends React.Component {
   constructor(props) {
@@ -27,11 +28,8 @@ export default class EditableCell extends React.Component {
 
   render() {
     var value = this.state.value;
-    return <td key={this.props.key} onClick={this.props.clickHandler}>
-
-    {this.props.editable ?
-      <input ref='inputInternalRef' type='text' onChange={this.onChange.bind(this)} value={value}/> :
-      <span>{this.state.value}</span>}
-    </td>
+    return  this.props.editable ?
+      <input className='editableCell' ref='inputInternalRef' type='text' onChange={this.onChange.bind(this)} value={value}/> :
+      <span>{this.state.value}</span>
   }
 }

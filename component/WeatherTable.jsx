@@ -1,5 +1,6 @@
 import React from 'react'
 import EditableCell from './Cells.jsx'
+import '../assets/table.css'
 
 export default class WeatherTable extends React.Component {
 
@@ -20,22 +21,26 @@ export default class WeatherTable extends React.Component {
                               'Максимальная температура','Минимальная темпертаура']
     return (
       <div>
-        <table className='table table-striped table-bordered'>
-        <tbody>
-          <tr>
-            {headColumns.map( (name) => <th key={name}>{name}</th>)}
-          </tr>
+        <table className='table table-bordered weatherTable'>
+          <thead>
+            <tr>
+              {headColumns.map( (name) => <th key={name}>{name}</th>)}
+            </tr>
+          </thead>
+          <tbody>
             {firstColumnNames.map((label, row) =>
               <tr key={label}>
-                <td key={label}>
+                <td className='labelColumn' key={label}>
                   {label}
                 </td>
                 {headColumns.slice(1,headColumns.length).map ( (x, col) =>
                   {
                     let key = `${label}_${x}`;
-                    return (<EditableCell key={key}
-                      editable={this.state.selected_row === row && this.state.select_column === col}
-                      clickHandler={this.clickHandler.bind(this, row, col)}/>)
+                    return (
+                      <td className='dataColumn' key={key} onClick={this.clickHandler.bind(this, row, col)}>
+                        <EditableCell editable={this.state.selected_row === row && this.state.select_column === col}/>
+                      </td>
+                    )
                   })}
               </tr>
             )}
