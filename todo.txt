@@ -1,0 +1,8 @@
+1) add i18n support (labels, number formats and stuff)
+2) split editableCell control (allowing to display dropdown lists)
+3) validation
+4) learn it to speak with some sort of rest api
+5) embed it in non react app
+6) learn one more control
+7) try to embed both of them
+8) make a simple control for demo
